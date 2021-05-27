@@ -1,0 +1,15 @@
+name: build
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-2019
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure CMake
+      run: cmake -S . -B _build
+
+    - name: Build
+      run: cmake --build _build
